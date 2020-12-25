@@ -15,9 +15,10 @@ public class Main {
 
 		CheckersBoard cb = new CheckersBoard();
 		cb.printBoard();
-		cb.move(new Coordinates(5, 0), new Coordinates(4, 1), pb);
+		cb.grid[4][1] = new Pawn(cb, Player.PlayerType.White);
 		cb.printBoard();
-
-    }
+		cb.move(new Coordinates(5, 0), new Coordinates(3, 2), pb);
+		cb.printBoard();
+	}
 }
 	
