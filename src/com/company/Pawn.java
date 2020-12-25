@@ -72,7 +72,6 @@ public class Pawn extends Token {
             }
         }
 
-
         board.grid[end.r][end.c] = board.grid[beg.r][beg.c];
         board.grid[beg.r][beg.c] = null;
         return true;

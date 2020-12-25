@@ -15,10 +15,18 @@ public class Main {
 
 		CheckersBoard cb = new CheckersBoard();
 		cb.printBoard();
+		System.out.println("God spawned a white piece");
 		cb.grid[4][1] = new Pawn(cb, Player.PlayerType.White);
 		cb.printBoard();
 		cb.move(new Coordinates(5, 0), new Coordinates(3, 2), pb);
 		cb.printBoard();
+		cb.grid[2][1] = null;
+		cb.grid[2][1] = new King(cb, Player.PlayerType.White);
+		System.out.println("After god saw the atrocious murder, he made a pawn a king");
+		cb.printBoard();
+		cb.move(new Coordinates(2, 1), new Coordinates(4, 3), pw);
+		cb.printBoard();
+
 	}
 }
 	
