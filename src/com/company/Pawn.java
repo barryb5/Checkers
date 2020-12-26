@@ -24,7 +24,7 @@ public class Pawn extends Token {
             System.out.println("Murder is possible");
             // If the token is white
             if (mult == 1) {
-                int checkMiddleNumberIsForMathPurposes = (end.c - beg.c) / 2;
+                int midNum = (end.c - beg.c) / 2;
                 // Checks if piece is moving proper amount of space
                 if (Math.abs(end.c - beg.c) != 2 || Math.abs(end.r - beg.r) != 2) {
                     return false;
@@ -37,17 +37,17 @@ public class Pawn extends Token {
                 } else
                     System.out.println("Final space is empty");
                 // Checks to see if the enemy is in the kill spot
-                if (board.grid[beg.r - 1][beg.c + checkMiddleNumberIsForMathPurposes] == null
-                    || board.grid[beg.r - 1][beg.c + checkMiddleNumberIsForMathPurposes].getPlayerType() == Player.PlayerType.White) {
+                if (board.grid[beg.r - 1][beg.c + midNum] == null
+                    || board.grid[beg.r - 1][beg.c + midNum].getPlayerType() == Player.PlayerType.White) {
                     System.out.println("No enemy in sight");
                     return false;
                 } else {
                     System.out.println("Enemy in sight");
                 }
-                board.grid[beg.r - 1][beg.c + checkMiddleNumberIsForMathPurposes] = null;
+                board.grid[beg.r - 1][beg.c + midNum] = null;
                 System.out.println("Murder Successful");
             } else {
-                int checkMiddleNumberIsForMathPurposes = (end.c - beg.c) / 2;
+                int midNum = (end.c - beg.c) / 2;
                 // Checks if piece is moving proper amount of space
                 if (Math.abs(end.c - beg.c) != 2 || Math.abs(end.r - beg.r) != 2) {
                     return false;
@@ -60,14 +60,14 @@ public class Pawn extends Token {
                 } else
                     System.out.println("Final space is empty");
                 // Checks to see if the enemy is in the kill spot
-                if (board.grid[beg.r + 1][beg.c + checkMiddleNumberIsForMathPurposes] == null
-                        || board.grid[beg.r - 1][beg.c + checkMiddleNumberIsForMathPurposes].getPlayerType() == Player.PlayerType.Black) {
+                if (board.grid[beg.r + 1][beg.c + midNum] == null
+                        || board.grid[beg.r - 1][beg.c + midNum].getPlayerType() == Player.PlayerType.Black) {
                     System.out.println("No enemy in sight");
                     return false;
                 } else {
                     System.out.println("Enemy in sight");
                 }
-                board.grid[beg.r - 1][beg.c + checkMiddleNumberIsForMathPurposes] = null;
+                board.grid[beg.r - 1][beg.c + midNum] = null;
                 System.out.println("Murder Successful");
             }
         }

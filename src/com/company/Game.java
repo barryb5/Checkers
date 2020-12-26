@@ -17,7 +17,7 @@ public class Game {
         // stating things to the players
         System.out.println("1. This is checkers.");
         System.out.println("2. White goes first.");
-        System.out.println("4. The only way to win is by killing all of the other players pieces.");
+        System.out.println("3. The only way to win is by killing all of the other players pieces.");
 
         // loop until somebody wins
         while (!board.checkWinner()) {

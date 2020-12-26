@@ -9,15 +9,15 @@ public class Player {
     int[] readInts() {
         System.out.print("Put in your input as curRow, curCol, newRow, newCol. ");
         System.out.println("Eg. is you want to move your piece from 5, 0 to 4, 1 then you would put in (5, 0, 4, 1)");
-        int[] ret = new int[4];
+        int[] coords = new int[4];
 
         try {
-            String string = scanner.nextLine(); // get what the player inputs
-            string = string.replaceAll("\\s", ""); // get rid of all the spaces
-            String[] res = string.split(","); // put it into a array split by the commas
+            String input = scanner.nextLine(); // get what the player inputs
+            input = input.replaceAll("\\s", ""); // get rid of all the spaces
+            String[] res = input.split(","); // put it into a array split by the commas
             for (int i = 0; i < 4; ++i) // loop 4 times to get all  of the strings into ints
-                ret[i] = Integer.parseInt(res[i]);
-            return ret;
+                coords[i] = Integer.parseInt(res[i]);
+            return coords;
         } catch (Exception e) {
             return new int[] {-1, -1, -1, -1}; // return something that won't work
         }
