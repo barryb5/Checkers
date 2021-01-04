@@ -37,7 +37,7 @@ public class King extends Token {
         }
 
         //Do murder
-        if (isKilling = true) {
+        if (isKilling == true) {
             // If the token is white
             if (mult == 1) {
                 int midNum = (end.c - beg.c) / 2;
