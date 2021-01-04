@@ -20,7 +20,7 @@ public class Pawn extends Token {
         }
 
         // checks if murder is possible
-        if (isKilling = true) {
+        if (isKilling == true) {
             System.out.println("Murder is possible");
             // If the token is white
             if (mult == 1) {
