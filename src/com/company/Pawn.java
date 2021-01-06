@@ -6,6 +6,7 @@ public class Pawn extends Token {
         super(board, type);
     }
 
+
     @Override
     public boolean move(Coordinates beg, Coordinates end)
     {

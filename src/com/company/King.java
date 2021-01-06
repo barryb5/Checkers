@@ -5,6 +5,7 @@ public class King extends Token {
         super(board, type);
     }
 
+
     @Override
     public boolean move(Coordinates beg, Coordinates end) {
         int mult = Player.PlayerType.White == type ? 1 : -1;
@@ -66,6 +67,7 @@ public class King extends Token {
                         System.out.println("Murder Successful");
                         board.grid[end.r][end.c] = board.grid[beg.r][beg.c];
                         board.grid[beg.r][beg.c] = null;
+                        // Increases score for person
                         return true;
                     }
                 } else {

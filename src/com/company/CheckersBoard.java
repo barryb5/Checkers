@@ -4,6 +4,7 @@ public class CheckersBoard {
     final int size = 8;
     final public Token[][] grid = new Token[size][size];
 
+
     CheckersBoard() {
         // when the board is created reset the board
         resetBoard();
@@ -65,6 +66,7 @@ public class CheckersBoard {
     }
 
 
+
     public boolean move(Coordinates beg, Coordinates end, Player player) {
         if ((beg.r < 0) ||
                 (beg.c < 0) ||
@@ -79,7 +81,12 @@ public class CheckersBoard {
                 (grid[end.r][end.c] != null))
             return false;
 
-        grid[beg.r][beg.c].move(beg, end);
+        boolean success = grid[beg.r][beg.c].move(beg, end);
+
+        if (!success) {
+            System.out.println("Move is illegal");
+            return false;
+        }
 
         return true;
     }
