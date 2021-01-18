@@ -23,6 +23,18 @@ public class AIPlayer {
         Black,
     }
 
+    public CheckersBoard CopyBoard(CheckersBoard originalBoard, CheckersBoard emptyBoard) {
+
+        for (int i = 0; i < originalBoard.size; i++) {
+            for (int j = 0; j < originalBoard.size; j++) {
+                emptyBoard.grid[i][j] = originalBoard.grid[i][j];
+            }
+        }
+
+        return emptyBoard;
+
+    }
+
     public int[] checkScore(CheckersBoard board) {
         int[] returnScores = new int[2];
         CheckersBoard cb = new CheckersBoard();
@@ -52,10 +64,25 @@ public class AIPlayer {
 
     public void move(CheckersBoard board, AIPlayer player) {
         // Write code to find best start and end coordinates using a minimax algorithm here
-
+        // Creates tempBoard and copies the full board onto tempBoard
         CheckersBoard tempBoard = new CheckersBoard();
-        // Fix somehow: tempBoard = board.clone();
+        tempBoard = CopyBoard(board, tempBoard);
 
+        for (int i = 0; i < tempBoard.size; i++) {
+            for (int j = 0; j < tempBoard.size; j++) {
+                Pawn p = new Pawn(tempBoard, Player.PlayerType.Black);
+                Coordinates start = new Coordinates(i, j);
+                int[] values = new int[4];
+                values = p.canMove(start);
+
+                if (values[0] == 1 && values[1] == 2) {
+                    // Checks if can move and checks if it is the right color
+
+                    Coordinates end = new Coordinates(values[2], values[3]);
+                    board.grid[i][j].move(start, end);
+                }
+            }
+        }
 
 
 

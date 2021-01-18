@@ -3,16 +3,17 @@ import java.lang.*;
 
 public class Game {
     CheckersBoard  board = new CheckersBoard();
-    Player pb;
+    AIPlayer pb;
     Player pw;
 
-    Game(Player pb, Player pw) {
+    Game(AIPlayer pb, Player pw) {
         this.pb = pb;
         this.pw = pw;
     }
 
     public void play() {
-        Player curPlayer = pw; // player white starts first
+        // Player curPlayer = pw; // player white starts first
+        boolean isPlayerWhite = true;
 
         // stating things to the players
         System.out.println("1. This is checkers.");
@@ -22,8 +23,16 @@ public class Game {
         // loop until somebody wins
         while (!board.checkWinner()) {
             board.printBoard(); // print the board
-            curPlayer.move(board, curPlayer); // player moves their piece
-            curPlayer = (curPlayer.getPlayerType() == pb.getPlayerType()) ? pw : pb; // swap between players
+            if (isPlayerWhite == true) {
+                pw.move(board, pw); // player moves their piece
+                isPlayerWhite = false; // swap between players
+            } else {
+                pb.move(board, pb); // player moves their piece
+                isPlayerWhite = true; // swap between players
+            }
+
+            // curPlayer.move(board, curPlayer);
+            // curPlayer = (curPlayer.getPlayerType() == pb.getPlayerType()) ? pw : pb;
         }
     }
 }

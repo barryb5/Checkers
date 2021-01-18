@@ -6,6 +6,49 @@ public class Pawn extends Token {
         super(board, type);
     }
 
+    public int[] canMove(Coordinates beg) {
+        int mult = Player.PlayerType.White == type ? 1 : -1;
+        int[] returnValues = new int[4];
+        /** @param returnValues - will have 0 in first spot if no movement available, one if there is,
+         *                        will have 1 in second spot if white, 2 if black
+         *                        will have end coordinates row in spot 3
+         *                        will have end coordinates column in spot 4
+        */
+
+        if (mult == 1) {
+            returnValues[1] = 1;
+            // Player is white
+            return returnValues;
+        } else if (mult == -1) {
+            returnValues[1] = 2;
+            // Player is black
+            if (beg.c - 1 < 0 || beg.c + 1 > 7 || beg.r - 1 < 0) {
+
+            }
+
+            if (beg.c - 1 >= 0 || beg.r - 1 >= 0) {
+                if (board.grid[beg.c - 1][beg.r - 1] == null) {
+                    returnValues[0] = 1;
+                    returnValues[2] = beg.r - 1;
+                    returnValues[3] = beg.c - 1;
+                    return returnValues;
+                }
+            } else if (board.grid[beg.c + 1][beg.r - 1] == null) {
+            if (beg.c - 1 >= 0 || beg.r - 1 >= 0) {
+                returnValues[0] = 1;
+                returnValues[2] = beg.r - 1;
+                returnValues[3] = beg.c + 1;
+                return returnValues;
+                }
+            } else {
+                returnValues[0] = 0;
+                return returnValues;
+            }
+        }
+
+        returnValues[0] = 0;
+        return returnValues;
+    }
 
     @Override
     public boolean move(Coordinates beg, Coordinates end)

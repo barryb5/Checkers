@@ -5,11 +5,12 @@ public class Main {
     public static void main(String[] args) {
 
     	// pb is player black and pw is player white
-		Player pb = new Player(Player.PlayerType.Black);
+		AIPlayer pb = new AIPlayer(AIPlayer.PlayerType.Black);
 		Player pw = new Player(Player.PlayerType.White);
 
 		// create a new Game class and play the game
-	    Game game = new Game(pb, pw);
+
+		Game game = new Game(pb, pw);
 	    game.play();
 
 /*
